@@ -6,7 +6,7 @@
 
    # Author: Upkar Lidder (IBM)
    # Additional Authors:
-   # <your GitHub username>
+   # <arefeh-crepuscule>
 
    # Input:
    # p, principal amount
