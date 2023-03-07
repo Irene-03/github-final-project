@@ -36,37 +36,46 @@ public class Menu {
             System.out.print(cls);
 
             //print menu
-            System.out.println("How do you wanna play the game ?\n");
-            System.out.println("1- one player \n");
-            System.out.println("2- two player \n");
-            System.out.println("3- exit \n");
+            printMenu();
 
             //input
             menuInput = scanner.nextInt();
 
 
             // check the input
-            switch (menuInput) {
-                case 1 -> {
-                    //play whit AI
-                    System.out.println(cls);
-                    aiPlayer();
-                    menuInput = object.playAgain();
-                }
-                case 2 -> {
-                    //two player
-                    System.out.println(cls);
-                    twoPlayer();
-                    menuInput = object.playAgain();
-                }
-                case 3 -> System.out.println(cls);
-                default -> {
-                    System.out.println(cls);
-                    System.out.println("wrong command , enter another number !!");
-                }
-            }
+            menuInput = checkMenuInout(menuInput);
 
         }
+    }
+
+    private int checkMenuInout(int menuInput) {
+        switch (menuInput) {
+            case 1 -> {
+                //play whit AI
+                System.out.println(cls);
+                aiPlayer();
+                menuInput = object.playAgain();
+            }
+            case 2 -> {
+                //two player
+                System.out.println(cls);
+                twoPlayer();
+                menuInput = object.playAgain();
+            }
+            case 3 -> System.out.println(cls);
+            default -> {
+                System.out.println(cls);
+                System.out.println("wrong command , enter another number !!");
+            }
+        }
+        return menuInput;
+    }
+
+    private static void printMenu() {
+        System.out.println("How do you wanna play the game ?\n");
+        System.out.println("1- one player \n");
+        System.out.println("2- two player \n");
+        System.out.println("3- exit \n");
     }
 
 
@@ -107,10 +116,7 @@ public class Menu {
             //input
             boolean testInput;
 
-
             turnTwoPlayer(sequencing);
-
-
             player = scanner.nextInt();
 
             //check the block cell
@@ -136,13 +142,11 @@ public class Menu {
                 object.changeBoard(gameBoard, selfBoard, player, greenO);
             }
 
-
             sequencing++;
 
             //check the winner status
 
             result = object.checkWinnerStatus(selfBoard);
-
 
             if (result.equals(blueX)) {
                 resultPlayer(gameBoard, "player one win !!\n\n");
@@ -188,7 +192,7 @@ public class Menu {
 
     }
 
-    private void startGamingAiPlayer(String[] gameBoard, String[] selfBoard, ArrayList<Integer> randomBlock, int sequencing) {
+    private void startGamingAiPlayer(String[] gameBoard, String[] selfBoard, ArrayList<Integer> randomBlock, int sequencing ) {
         String result;
         int player;
         int ai;

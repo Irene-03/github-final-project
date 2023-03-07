@@ -277,10 +277,10 @@ public class Function {
         if (player > 16) {
             System.out.println("\u001B[35m"+"Your selection is incorrect!! choose another"+ "\u001B[0m");
             return false;
-        } else if (Objects.equals(selfBoard[player - 1], redBlock)) {
+        } else if (selfBoard[player - 1].equals( redBlock)) {
             System.out.println("\u001B[35m"+"This cell is blocked !! choose another."+ "\u001B[0m");
             return false;
-        } else if (Objects.equals(selfBoard[player - 1], blueX) || Objects.equals(selfBoard[player - 1], greenO)) {
+        } else if (selfBoard[player - 1].equals( blueX) || Objects.equals(selfBoard[player - 1], greenO)) {
             System.out.println("\u001B[35m"+"This cell is already selected !! choose another."+ "\u001B[0m");
             return false;
         } else {
