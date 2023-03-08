@@ -5,7 +5,20 @@ public class StateOne {
         String address = "D:\\B - University\\AP - JAVA\\projects\\project-1\\tic-tac-toe project\\new.text";
         File file = new File(address);
 
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         String st;
-        System.out.println("hello");
+        while (true) {
+            try {
+                if (!((st = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println(st);
+        }
     }
 }

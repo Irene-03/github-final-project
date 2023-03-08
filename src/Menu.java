@@ -14,6 +14,8 @@ public class Menu {
     private final int[] blockArray = new int[3];
     private final ArrayList<Integer> randomBlock = new ArrayList<>();
     private final int sequencing = 0;
+    private  CheckWinner obj =new CheckWinner(selfBoard);
+
 
 
     /**
@@ -43,12 +45,12 @@ public class Menu {
 
 
             // check the input
-            menuInput = checkMenuInout(menuInput);
+            menuInput = checkMenuInput(menuInput);
 
         }
     }
 
-    private int checkMenuInout(int menuInput) {
+    private int checkMenuInput(int menuInput) {
         switch (menuInput) {
             case 1 -> {
                 //play whit AI
@@ -146,7 +148,7 @@ public class Menu {
 
             //check the winner status
 
-            result = object.checkWinnerStatus(selfBoard);
+            result = obj.checkWinnerStatus(selfBoard);
 
             if (result.equals(blueX)) {
                 resultPlayer(gameBoard, "player one win !!\n\n");
@@ -237,7 +239,7 @@ public class Menu {
 
 
             //check the winner status
-            result = object.checkWinnerStatus(selfBoard);
+            result = obj.checkWinnerStatus(selfBoard);
 
             if (result.equals(blueX)) {
                 resultPlayer(gameBoard, "   you win !!\n\n");

@@ -5,9 +5,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-//        Menu object = new Menu();
-        StateOne st = new StateOne();
-        st.setting();
+        Menu object = new Menu();
+//        StateOne st = new StateOne();
+//        st.setting();
     }
 
 }
