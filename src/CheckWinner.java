@@ -7,14 +7,15 @@ public class CheckWinner {
     private int index;
     private int sum = 0;
     private String[] gameInfo;
-    private int sideSize;
+    private int sideSize ;
+    private int wonCndition =3;
 
-    public CheckWinner(String[] gameInfo ) {
+    public CheckWinner(String[] gameInfo, int sideSize ) {
         this.gameInfo = gameInfo;
-//        this.sideSize = sideSize;
+        this.sideSize = sideSize;
     }
 
-    public String checkWinnerStatus(String[] gameInfo){
+    public String checkWinnerStatus(String[] gameInfo ){
         this.gameInfo = gameInfo;
         String result = "free";
         if (!(result =checkRow()).equals("free")){
@@ -28,13 +29,13 @@ public class CheckWinner {
         }else {return "free";}
     }
     public String checkRow() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < sideSize; i++) {
             cell = null;
             sum = 0;
 
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < sideSize; j++) {
 
-                index = 4 * i + j;
+                index = sideSize * i + j;
 
                 if (gameInfo[index].equals(cell)) {
                     sum++;
@@ -43,7 +44,7 @@ public class CheckWinner {
                     sum = 1;
                 }
 
-                if (!cell.equals("free") && sum == 3) {
+                if (!cell.equals("free") && sum == wonCndition) {
                     return cell;
                 }
             }
@@ -52,12 +53,12 @@ public class CheckWinner {
     }
 
     public String checkColumn() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < sideSize; i++) {
             cell = null;
             sum = 0;
 
-            for (int j = 0; j < 4; j++) {
-                index = 4 * j + i;
+            for (int j = 0; j < sideSize; j++) {
+                index = sideSize * j + i;
 
                 if (gameInfo[index].equals(cell)) {
                     sum++;
@@ -66,7 +67,7 @@ public class CheckWinner {
                     sum = 1;
                 }
 
-                if (!cell.equals("free") && sum == 3) {
+                if (!cell.equals("free") && sum == wonCndition) {
                     return cell;
                 }
             }
@@ -75,22 +76,22 @@ public class CheckWinner {
     }
 
     public String checckMainDiagonal() {
-        for (int i = -2; i <= 2; i++) {
+        for (int i = 2-sideSize; i <= sideSize-2; i++) {
             cell = null;
             sum =0;
-            for (int j = 0; j < 4; j++) {
-                for (int k = 0; k < 4; k++) {
+            for (int j = 0; j < sideSize; j++) {
+                for (int k = 0; k < sideSize; k++) {
                     if (j - k != i) {
                         continue;
                     }
-                    index = 4 * j + k;
+                    index = sideSize * j + k;
                     if (gameInfo[index].equals(cell)) {
                         sum++;
                     } else {
                         cell = gameInfo[index];
                         sum = 1;
                     }
-                    if (!cell.equals("free") && sum == 3) {
+                    if (!cell.equals("free") && sum == wonCndition) {
                         return cell;
                     }
                 }
@@ -101,22 +102,22 @@ public class CheckWinner {
     public String checkSubDiagonal() {
 
 
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i <= (sideSize *2 -3); i++) {
             sum = 0;
             cell = null;
-            for (int j = 0; j < 4; j++) {
-                for (int k = 0; k < 4; k++) {
+            for (int j = 0; j < sideSize; j++) {
+                for (int k = 0; k < sideSize; k++) {
                     if (j + k != i) {
                         continue;
                     }
-                    index = 4 * j + k;
+                    index = sideSize * j + k;
                     if (gameInfo[index].equals(cell)) {
                         sum++;
                     } else {
                         cell = gameInfo[index];
                         sum = 1;
                     }
-                    if (!cell.equals("free") && sum == 3) {
+                    if (!cell.equals("free") && sum == wonCndition) {
                         return cell;
                     }
 
