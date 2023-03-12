@@ -1,4 +1,3 @@
-import javax.swing.plaf.IconUIResource;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -65,12 +64,6 @@ public class Function {
         selfBoard[player - 1] = symbol;
     }
 
-    /**
-     * this function check the winner status by checking the cell of board and 3 same elements  in a line
-     *
-     * @param gameInfo this is an array that give the information for checking cells (self array)
-     * @return return the player status by telling that find 3 same elements  in a line or not
-     */
 
 
     /**
@@ -152,7 +145,6 @@ public class Function {
         }
         return 1;
     }
-
 
 
 }

@@ -6,8 +6,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Menu object = new Menu();
-//        StateOne st = new StateOne();
-//        st.setting();
+
     }
 
 }

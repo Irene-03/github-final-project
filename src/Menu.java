@@ -14,7 +14,7 @@ public class Menu {
     private final int[] blockArray = new int[3];
     private final ArrayList<Integer> randomBlock = new ArrayList<>();
     private final int sequencing = 0;
-    private  CheckWinner obj =new CheckWinner(selfBoard ,4);
+    private final CheckWinner obj =new CheckWinner(selfBoard ,4);
 
 
 
