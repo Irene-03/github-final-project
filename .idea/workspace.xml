@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42303496-d2ed-4f43-ba1a-1e2c37a31374" name="Changes" comment="change function of winner status">
-      <change afterPath="$PROJECT_DIR$/src/LoginData.java" afterDir="false" />
+    <list default="true" id="42303496-d2ed-4f43-ba1a-1e2c37a31374" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StateOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +154,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Menu.java</url>
           <line>75</line>
-          <properties class="Menu" method="resultPlayer">
+          <properties class="Menu" method="printMenu">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

@@ -21,9 +21,9 @@ public class Menu {
     /**
      * a constructor that just call teh menu function
      */
-    public Menu() {
-        menu();
-    }
+//    public Menu() {
+//        menu();
+//    }
 
 
     /**
@@ -77,7 +77,7 @@ public class Menu {
         System.out.println("How do you wanna play the game ?\n");
         System.out.println("1- one player \n");
         System.out.println("2- two player \n");
-        System.out.println("3- exit \n");
+        System.out.println("3- back \n");
     }
 
 
