@@ -14,8 +14,7 @@ public class Menu {
     private final int[] blockArray = new int[3];
     private final ArrayList<Integer> randomBlock = new ArrayList<>();
     private final int sequencing = 0;
-    private final CheckWinner obj =new CheckWinner(selfBoard ,4);
-
+    private final CheckWinner obj = new CheckWinner(selfBoard, 4);
 
 
     /**
@@ -34,22 +33,20 @@ public class Menu {
         int menuInput = 0;
 
         while (menuInput != 3) {
-            //clear the screen
             System.out.print(cls);
-
-            //print menu
             printMenu();
-
-            //input
             menuInput = scanner.nextInt();
-
-
-            // check the input
             menuInput = checkMenuInput(menuInput);
 
         }
     }
 
+    /**
+     * check users input and call suitable function
+     *
+     * @param menuInput user input after watching menu list
+     * @return changed menu input in  other function
+     */
     private int checkMenuInput(int menuInput) {
         switch (menuInput) {
             case 1 -> {
@@ -73,6 +70,9 @@ public class Menu {
         return menuInput;
     }
 
+    /**
+     * just print menu list
+     */
     private static void printMenu() {
         System.out.println("How do you wanna play the game ?\n");
         System.out.println("1- one player \n");
@@ -82,7 +82,7 @@ public class Menu {
 
 
     /**
-     * call the function when two player play the game
+     * making boards and arraylist for statr the game
      */
     public void twoPlayer() {
 
@@ -99,11 +99,18 @@ public class Menu {
         startGamingTwoPlayer(gameBoard, selfBoard, randomBlock, sequencing);
     }
 
+    /**
+     * call the functions in order for two player state
+      * @param gameBoard board that we need to print after every changing
+     * @param selfBoard board that we need to change in a certain way for program activity
+     * @param randomBlock an array list which includes the allowed options for choose block cell
+     * @param sequencing a variable program use for to determine the turn of the players
+     */
     private void startGamingTwoPlayer(String[] gameBoard, String[] selfBoard, ArrayList<Integer> randomBlock, int sequencing) {
         int player;
         String result;
         for (int i = 0; i < 14; i++) {
-            //clear the screen
+
             if (i == 13) {
                 System.out.println(cls);
                 System.out.println(" Equal result!!");
@@ -112,10 +119,8 @@ public class Menu {
 
             }
             System.out.println(cls);
-            //print the game board
             object.printGameBoard(gameBoard);
 
-            //input
             boolean testInput;
 
             turnTwoPlayer(sequencing);
@@ -146,8 +151,6 @@ public class Menu {
 
             sequencing++;
 
-            //check the winner status
-
             result = obj.checkWinnerStatus(selfBoard);
 
             if (result.equals(blueX)) {
@@ -162,12 +165,21 @@ public class Menu {
         }
     }
 
+    /**
+     * just show the game result in the end  with print game board
+     * @param gameBoard board that we changed in previous functions
+     * @param resultPlayer a string that include the result mean which player is winner
+     */
     private void resultPlayer(String[] gameBoard, String resultPlayer) {
         System.out.println(cls);
         System.out.print(resultPlayer);
         object.printGameBoard(gameBoard);
     }
 
+    /**
+     * determining the order of play of the players
+      * @param sequencing a variable we changed in  startGamingTwoPlayer  function know we want to check it
+     */
     private static void turnTwoPlayer(int sequencing) {
         if (sequencing % 2 == 0) {
             System.out.print("Player one :\t");
@@ -177,7 +189,7 @@ public class Menu {
     }
 
     /**
-     * call the function when someone play whit AI
+     * making boards and arraylist for start the game
      */
     public void aiPlayer() {
 
@@ -194,7 +206,14 @@ public class Menu {
 
     }
 
-    private void startGamingAiPlayer(String[] gameBoard, String[] selfBoard, ArrayList<Integer> randomBlock, int sequencing ) {
+    /**
+     * call the functions in order for AI player state
+      * @param gameBoard board that we need to print after every changing
+     * @param selfBoard board that we need to change in a certain way for program activity
+     * @param randomBlock an array list which includes the allowed options for choose block cell and AI choice with rando function
+     * @param sequencing a variable program use for to determine the turn of the players
+     */
+    private void startGamingAiPlayer(String[] gameBoard, String[] selfBoard, ArrayList<Integer> randomBlock, int sequencing) {
         String result;
         int player;
         int ai;
@@ -230,6 +249,7 @@ public class Menu {
                     }
                 }
                 //change the game boards
+                randomBlock.remove((Integer) player);
                 object.changeBoard(gameBoard, selfBoard, player, blueX);
             } else {
                 ai = object.aiChoice(randomBlock);
